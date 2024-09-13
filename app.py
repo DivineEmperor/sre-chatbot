@@ -14,9 +14,9 @@ st.set_page_config(
 
 # Initialize OpenAI API key
 openai.api_key = st.secrets["openai_api_key"]
-
+pine_cone_api_key = st.secrets["pinecone_api_key"]
 # Initialize Pinecone
-pc = Pinecone(api_key="a02bd58c-7797-4336-b53d-e750ee6cf8f3")
+pc = Pinecone(api_key=pine_cone_api_key)
 index = pc.Index("chatbot")
 
 
@@ -150,13 +150,13 @@ def answer_question_using_context(question):
             context = ""
             for match in query_result['matches']:
                 context += f"ID: {match['id']}, Metadata: {match['metadata']}, Content: {match['metadata'].get('content', '')}\n"
-            
-            # Step 3: Get the answer from OpenAI based on the context
-            answer = get_answer_from_openai(context, question)
-            intro_message = "Hi, this is the intl-sre bot helping with queries regarding incidents.\n"
-            return intro_message+answer
         else:
-            return "No relevant context found in the database."
+            context = "No relevant context found in the database."
+
+        # Step 3: Get the answer from OpenAI based on the context
+        answer = get_answer_from_openai(context, question)
+        intro_message = "Hi, this is the intl-sre bot helping with queries regarding incidents.\n"
+        return intro_message + answer
 
     except Exception as e:
         print(f"Error answering the question: {str(e)}")
