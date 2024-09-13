@@ -1,0 +1,5 @@
+streamlit
+openai
+pinecone-client
+requests
+streamlit-lottie
