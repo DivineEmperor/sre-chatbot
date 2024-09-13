@@ -196,7 +196,7 @@ def main():
     st.markdown("""
         <hr>
         <div style='text-align: center;'>
-            Made with ❤️ by [Pavan (pavanguduru.netlify.app/)
+            Made by [Pavan (pavanguduru.netlify.app/)
         </div>
     """, unsafe_allow_html=True)
 
