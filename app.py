@@ -165,7 +165,7 @@ def answer_question_using_context(question):
 # Streamlit App Layout
 def main():
     # Set the page configuration
-    # st.set_page_config(page_title="AI-Powered Q&A App", page_icon="❓", layout="centered")
+    # st.set_page_config(page_title="SRE BOT", page_icon="❓", layout="centered")
 
     # Display the title with custom styling
     st.markdown("<h1 class='title'>AI-Powered Q&A App</h1>", unsafe_allow_html=True)
